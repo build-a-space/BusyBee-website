@@ -1,0 +1,4 @@
+# Runtime data — never commit
+*
+!.gitignore
+!.htaccess

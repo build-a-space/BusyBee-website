@@ -1,0 +1,52 @@
+# Busy Bee — Apache config
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS + non-www (uncomment once SSL is live)
+  # RewriteCond %{HTTPS} off [OR]
+  # RewriteCond %{HTTP_HOST} ^www\. [NC]
+  # RewriteRule ^ https://busybeewg.com%{REQUEST_URI} [L,R=301]
+
+  # Block private folders
+  RewriteRule ^(data|includes|templates|admin)(/|$) - [F,L]
+  RewriteRule (^|/)\. - [F,L]
+
+  # Serve real files directly; everything else goes to the front controller
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Never execute scripts in uploads
+<FilesMatch "\.(php|phtml|phar|pl|py|cgi|sh)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+<Files "index.php">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</Files>
+
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml text/plain image/svg+xml
+</IfModule>

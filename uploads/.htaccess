@@ -1,0 +1,7 @@
+# Uploaded images only — never serve or run anything else from here
+<FilesMatch "\.(?i:php\d?|phtml|phar|pl|py|cgi|sh|html?|svg|js)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
