@@ -1,0 +1,52 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/residential-window-cleaning-services-in-northborough-ma",
+            "destination": "/northborough-worcester-county-ma-window-cleaning",
+            "permanent": true
+        },
+        {
+            "source": "/residential-power-washing-services-in-worcester-ma",
+            "destination": "/worcester-worcester-county-ma-window-cleaning",
+            "permanent": true
+        },
+        {
+            "source": "/gutter-cleaning-services-in-shrewsbury-ma",
+            "destination": "/shrewsbury-worcester-county-ma-window-cleaning",
+            "permanent": true
+        },
+        {
+            "source": "/shrewsbury-ma",
+            "destination": "/shrewsbury-worcester-county-ma-window-cleaning",
+            "permanent": true
+        },
+        {
+            "source": "/revere-suffolk-county-massachusetts",
+            "destination": "/service-areas",
+            "permanent": true
+        },
+        {
+            "source": "/blog/category/Affordable-Gutter-Cleaning-in-Middlesex-County",
+            "destination": "/blog",
+            "permanent": true
+        },
+        {
+            "source": "/dashboard-4-admin-panel",
+            "destination": "/",
+            "permanent": false
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "X-Robots-Tag",
+                    "value": "noindex, nofollow"
+                }
+            ]
+        }
+    ]
+}
