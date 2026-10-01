@@ -174,7 +174,7 @@ header('Referrer-Policy: strict-origin-when-cross-origin');
     </div>
   </div>
   <div class="wrap f-bottom">
-    <p>&copy; <?= date('Y') ?> <?= e($s['legal_name']) ?>. All rights reserved.</p>
+    <p>&copy; <?= date('Y') ?> <?= e(rtrim($s['legal_name'], '.')) ?>. All rights reserved.</p>
     <p><a href="/about">About</a> · <a href="/faq">FAQ</a> · <a href="/blog">Blog</a> · <a href="/privacy-policy">Privacy</a> · <a href="/sitemap.xml">Sitemap</a></p>
   </div>
 </footer>
